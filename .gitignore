@@ -6,9 +6,15 @@
 .env
 .env.backup
 .phpunit.result.cache
+docker-compose.override.yml
 Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+/.scribe
+public/packages/
+public/vendor/scribe
+resources/views/scribe
+package-lock.json
