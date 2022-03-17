@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class FailedJob
- * 
+ *
  * @property int $id
  * @property string $uuid
  * @property string $connection
@@ -39,4 +39,5 @@ class FailedJob extends Model
 		'exception',
 		'failed_at'
 	];
+
 }

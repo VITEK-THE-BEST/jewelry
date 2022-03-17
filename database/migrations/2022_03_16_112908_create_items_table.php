@@ -14,14 +14,15 @@ return new class extends Migration {
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
+
             $table->unsignedBigInteger('material_id');
             $table->foreign('material_id')->references('id')->on('materials');
 
             $table->unsignedBigInteger('type_id');
-            $table->foreign('type_id')->references('id')->on('type');
+            $table->foreign('type_id')->references('id')->on('types');
 
             $table->unsignedBigInteger('gem_id');
-            $table->foreign('gem_id')->references('id')->on('gem');
+            $table->foreign('gem_id')->references('id')->on('gems');
 
         });
     }

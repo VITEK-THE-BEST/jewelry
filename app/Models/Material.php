@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Material
- * 
+ *
  * @property int $id
  * @property string $name
  * @property string $image
@@ -26,4 +26,9 @@ class Material extends Model
 		'name',
 		'image'
 	];
+
+    public function items()
+    {
+        return $this->hasMany(Item::class);
+    }
 }

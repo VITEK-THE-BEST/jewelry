@@ -11,11 +11,11 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class User
- * 
+ *
  * @property int $id
  * @property string $login
  * @property string $password
- * 
+ *
  * @property Collection|Feedback[] $feedback
  *
  * @package App\Models
@@ -38,4 +38,9 @@ class User extends Model
 	{
 		return $this->hasMany(Feedback::class);
 	}
+
+    public function items()
+    {
+        return $this->belongsToMany(Item::class);
+    }
 }

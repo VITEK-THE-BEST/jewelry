@@ -10,12 +10,12 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Type
- * 
+ *
  * @property int $id
  * @property int $size_id
  * @property string $name
  * @property string $image
- * 
+ *
  * @property Size $size
  *
  * @package App\Models
@@ -39,4 +39,9 @@ class Type extends Model
 	{
 		return $this->belongsTo(Size::class);
 	}
+
+    public function items()
+    {
+        return $this->hasMany(Item::class);
+    }
 }
