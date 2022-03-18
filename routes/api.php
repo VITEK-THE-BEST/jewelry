@@ -21,6 +21,10 @@ Route::post('/registration', [UserController::class, 'register']);
  */
 Route::post('/getToken', [UserController::class, 'getToken']);
 
+Route::group(['prefix' => 'feedback'], function () {
+    Route::get('/showAll', [FeedBackController::class, 'showAll']);
+});
+
 Route::middleware(['api', 'auth:sanctum'])->group(function () {
     Route::group(['prefix' => 'user'], function () {
         Route::get('/me', [UserController::class, 'me']);
@@ -32,7 +36,6 @@ Route::middleware(['api', 'auth:sanctum'])->group(function () {
     Route::group(['prefix' => 'feedback'], function () {
         Route::post('/create', [FeedBackController::class, 'create']);
         Route::get('/showAuth', [FeedBackController::class, 'showAuth']);
-        Route::get('/showAll', [FeedBackController::class, 'showAll']);
         Route::patch('/update/{feedback}', [FeedBackController::class, 'update']);
         Route::delete('/delete/{feedback}', [FeedBackController::class, 'delete']);
     });
