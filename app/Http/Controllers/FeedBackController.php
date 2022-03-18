@@ -20,7 +20,7 @@ class FeedBackController extends Controller
     {
         $validate = $request->validate([
             'feedback' => 'required',
-            'score' => 'required',
+            'score' => 'required|integer',
         ]);
 
         $validate['user_id'] = auth()->id();

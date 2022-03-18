@@ -20,14 +20,14 @@ class UserController extends Controller
     public function register(Request $request)
     {
         $validate = $request->validate([
-            'login' => 'required',
+            'login' => 'required|unique:users',
             'password' => 'required',
         ]);
 
         $validate['password'] = Hash::make($validate['password']);
 
         $user = User::query()->create($validate);
-        $token = $user->createToken($request['email'])->plainTextToken;
+        $token = $user->createToken($request['login'])->plainTextToken;
 
         return response()->json(["user" => $user, "token" => $token]);
 
@@ -44,7 +44,7 @@ class UserController extends Controller
         ]);
 
         $user = User::query()
-            ->where('email', $request['email'])
+            ->where('login', $request['login'])
             ->first();
 
         if (!$user || !Hash::check($request['password'], $user->password)) {
@@ -52,7 +52,7 @@ class UserController extends Controller
                 "error" => "Неверный логин или пароль"], 404);
         }
 
-        $token = $user->createToken($request['email'])->plainTextToken;
+        $token = $user->createToken($request['login'])->plainTextToken;
 
         return response()->json(["token" => $token]);
     }

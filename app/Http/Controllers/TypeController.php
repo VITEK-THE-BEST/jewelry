@@ -32,7 +32,7 @@ class TypeController extends Controller
      */
     public function show()
     {
-        $types = Type::query()->all();
+        $types = Type::all();
         return response()->json($types);
     }
 
@@ -40,6 +40,8 @@ class TypeController extends Controller
      * типы по размеру
      *
      * получить типы изделия по размеру
+     *
+     * @urlParam Size id
      */
     public function take(Size $size)
     {

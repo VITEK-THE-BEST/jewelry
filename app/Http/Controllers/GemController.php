@@ -33,7 +33,7 @@ class GemController extends Controller
      */
     public function show()
     {
-        $gems = Gem::query()->all();
+        $gems = Gem::all();
         return response()->json($gems);
     }
 

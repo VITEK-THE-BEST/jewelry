@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\FeedBackController;
 use App\Http\Controllers\GemController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\SizeController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -58,16 +60,16 @@ Route::middleware(['api', 'auth:sanctum'])->group(function () {
     });
 
     Route::group(['prefix' => 'size'], function () {
-        Route::post('/create', [TypeController::class, 'create']);
-        Route::get('/show', [TypeController::class, 'show']);
-        Route::patch('/update/{size}', [TypeController::class, 'update']);
-        Route::delete('/delete/{size}', [TypeController::class, 'delete']);
+        Route::post('/create', [SizeController::class, 'create']);
+        Route::get('/show', [SizeController::class, 'show']);
+        Route::patch('/update/{size}', [SizeController::class, 'update']);
+        Route::delete('/delete/{size}', [SizeController::class, 'delete']);
     });
 
     Route::group(['prefix' => 'item'], function () {
-        Route::post('/create', [TypeController::class, 'create']);
-        Route::get('/show', [TypeController::class, 'show']);
-        Route::patch('/update/{item}', [TypeController::class, 'update']);
-        Route::delete('/delete/{item}', [TypeController::class, 'delete']);
+        Route::post('/create', [ItemController::class, 'create']);
+        Route::get('/show', [ItemController::class, 'show']);
+        Route::patch('/update/{item}', [ItemController::class, 'update']);
+        Route::delete('/delete/{item}', [ItemController::class, 'delete']);
     });
 });

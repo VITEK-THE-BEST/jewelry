@@ -17,9 +17,9 @@ class ItemController extends Controller
     public function create(Request $request)
     {
         $validate = $request->validate([
-            'material_id' => 'required|iteger',
-            'type_id' => 'required|iteger',
-            'gem_id' => 'required|iteger',
+            'material_id' => 'required|integer',
+            'type_id' => 'required|integer',
+            'gem_id' => 'required|integer',
         ]);
 
         $item = Item::query()->create($validate);
@@ -45,9 +45,9 @@ class ItemController extends Controller
     public function update(Request $request, Item $item)
     {
         $validate = $request->validate([
-            'material_id' => 'sometimes|iteger',
-            'type_id' => 'sometimes|iteger',
-            'gem_id' => 'sometimes|iteger',
+            'material_id' => 'sometimes|integer',
+            'type_id' => 'sometimes|integer',
+            'gem_id' => 'sometimes|integer',
         ]);
 
         $item->update($validate);
@@ -61,6 +61,7 @@ class ItemController extends Controller
      */
     public function delete(Item $item)
     {
+        $item->users()->detach(auth()->user());
         $item->delete();
         return response()->json([]);
     }

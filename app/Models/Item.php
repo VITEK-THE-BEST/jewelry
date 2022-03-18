@@ -15,6 +15,12 @@ class Item extends Model
         'type_id' => 'int'
     ];
 
+    protected $fillable = [
+        'material_id',
+        'gem_id',
+        'type_id'
+    ];
+
     public function material()
     {
         return $this->belongsTo(Material::class);

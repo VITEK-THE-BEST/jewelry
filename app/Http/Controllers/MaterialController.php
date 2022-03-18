@@ -32,7 +32,7 @@ class MaterialController extends Controller
      */
     public function show()
     {
-        $material = Material::query()->all();
+        $material = Material::all();
         return response()->json($material);
     }
 

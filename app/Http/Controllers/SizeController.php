@@ -30,7 +30,7 @@ class SizeController extends Controller
      */
     public function show()
     {
-        $sizes = Size::query()->all();
+        $sizes = Size::all();
         return response()->json($sizes);
     }
 
