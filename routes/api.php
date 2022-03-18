@@ -63,4 +63,11 @@ Route::middleware(['api', 'auth:sanctum'])->group(function () {
         Route::patch('/update/{size}', [TypeController::class, 'update']);
         Route::delete('/delete/{size}', [TypeController::class, 'delete']);
     });
+
+    Route::group(['prefix' => 'item'], function () {
+        Route::post('/create', [TypeController::class, 'create']);
+        Route::get('/show', [TypeController::class, 'show']);
+        Route::patch('/update/{item}', [TypeController::class, 'update']);
+        Route::delete('/delete/{item}', [TypeController::class, 'delete']);
+    });
 });
