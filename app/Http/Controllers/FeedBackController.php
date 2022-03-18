@@ -19,7 +19,7 @@ class FeedBackController extends Controller
     public function create(Request $request)
     {
         $validate = $request->validate([
-            'feedback' => 'required',
+            'feedback' => 'required|string',
             'score' => 'required|integer',
         ]);
 
@@ -58,7 +58,7 @@ class FeedBackController extends Controller
     public function update(Request $request, Feedback $feedback)
     {
         $validate = $request->validate([
-            'feedback' => 'sometimes',
+            'feedback' => 'sometimes|string',
             'score' => 'sometimes',
         ]);
 

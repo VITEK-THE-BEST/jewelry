@@ -88,6 +88,8 @@ class UserController extends Controller
     {
         $validate = $request->validate([
             'login' => 'sometimes',
+            'password' => 'sometimes',
+
         ]);
 
         auth()->user()->update($validate);
